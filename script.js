@@ -1,9 +1,32 @@
 // ======================================
 // VANSHiKA BIRTHDAY WEBSITE JAVASCRIPT
 // ======================================
+const passwordInput = document.getElementById("passwordInput");
+const unlockBtn = document.getElementById("unlockBtn");
+const passwordScreen = document.getElementById("passwordScreen");
+const introPage = document.getElementById("introPage");
 
 
-// LOADER
+if(unlockBtn){
+
+unlockBtn.addEventListener("click",()=>{
+
+    if(passwordInput.value === "17-07"){
+
+        passwordScreen.classList.add("hidden");
+
+        introPage.classList.remove("hidden");
+
+    }
+    else{
+
+        alert("Wrong password 💜");
+
+    }
+
+});
+
+}
 
 // ELEMENTS
 
