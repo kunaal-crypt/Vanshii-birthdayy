@@ -1,195 +1,259 @@
-/* ========================================= */
-/* ELEMENTS */
-/* ========================================= */
+// ===============================
+// ELEMENTS
+// ===============================
 
 const loader = document.getElementById("loader");
-
 const passwordScreen = document.getElementById("passwordScreen");
-
-const introPage = document.getElementById("introPage");
-
-const celebrationPage = document.getElementById("celebrationPage");
-
-const homePage = document.getElementById("homePage");
-
-const endingScreen = document.getElementById("endingScreen");
-
 const passwordInput = document.getElementById("passwordInput");
-
 const unlockBtn = document.getElementById("unlockBtn");
-
 const passwordError = document.getElementById("passwordError");
 
-const startCelebration =
-document.getElementById("startCelebration");
+const introPage = document.getElementById("introPage");
+const startCelebration = document.getElementById("startCelebration");
 
-const lightCandlesBtn =
-document.getElementById("lightCandlesBtn");
+const celebrationPage = document.getElementById("celebrationPage");
+const homePage = document.getElementById("homePage");
 
-const wishBtn =
-document.getElementById("wishBtn");
+const lightCandlesBtn = document.getElementById("lightCandlesBtn");
+const wishBtn = document.getElementById("wishBtn");
+const balloonBtn = document.getElementById("balloonBtn");
+const cakeBtn = document.getElementById("cakeBtn");
 
-const balloonBtn =
-document.getElementById("balloonBtn");
+const cakeMessage = document.getElementById("cakeMessage");
 
-const cakeBtn =
-document.getElementById("cakeBtn");
+const menuButtons = document.querySelectorAll(".menuCard");
+const pages = document.querySelectorAll(".page");
 
-const finishWebsite =
-document.getElementById("finishWebsite");
+const backButtons = document.querySelectorAll(".backBtn");
 
-/* ========================================= */
-/* LOADER */
-/* ========================================= */
+const playMusicBtn = document.getElementById("playMusicBtn");
+const birthdayMusic = document.getElementById("birthdayMusic");
 
-window.addEventListener("load",()=>{
+const restartBtn = document.getElementById("restartBtn");
 
-setTimeout(()=>{
 
-loader.style.opacity="0";
 
-loader.style.transition="1s";
 
-setTimeout(()=>{
 
-loader.style.display="none";
+// ===============================
+// LOADER
+// ===============================
 
-passwordScreen.classList.remove("hidden");
+window.onload = () => {
 
-},900);
+    setTimeout(() => {
 
-},2200);
+        loader.style.display = "none";
 
-});
+    },2000);
 
-/* ========================================= */
-/* PASSWORD */
-/* ========================================= */
+};
 
-unlockBtn.addEventListener("click",()=>{
 
-const password=passwordInput.value.trim();
 
-if(password==="17-07"){
 
-passwordScreen.classList.add("hidden");
 
-introPage.classList.remove("hidden");
+// ===============================
+// PASSWORD
+// ===============================
 
-}
 
-else{
+unlockBtn.onclick = () => {
 
-passwordError.innerHTML=
 
-"❌ Wrong Password";
+    if(passwordInput.value === "17-07"){
 
-passwordInput.value="";
 
-}
+        passwordScreen.classList.add("hidden");
 
-});
+        introPage.classList.remove("hidden");
 
-passwordInput.addEventListener("keypress",(e)=>{
 
-if(e.key==="Enter"){
+    }
 
-unlockBtn.click();
+    else{
 
-}
 
-});
+        passwordError.innerHTML =
+        "Wrong password 😭 Try again";
 
-/* ========================================= */
-/* INTRO */
-/* ========================================= */
 
-startCelebration.addEventListener("click",()=>{
+    }
+
+
+};
+
+
+
+
+
+
+
+// ===============================
+// START CELEBRATION
+// ===============================
+
+
+startCelebration.onclick = () => {
+
 
 introPage.classList.add("hidden");
 
 celebrationPage.classList.remove("hidden");
 
-});
 
-/* ========================================= */
-/* CELEBRATION */
-/* ========================================= */
+};
 
-lightCandlesBtn.addEventListener("click",()=>{
 
-alert("🕯 The candles are glowing beautifully!");
 
-lightCandlesBtn.disabled=true;
 
-wishBtn.disabled=false;
 
-});
 
-wishBtn.addEventListener("click",()=>{
 
-alert("🌠 Close your eyes and make a beautiful wish!");
 
-wishBtn.disabled=true;
+// ===============================
+// CANDLE BUTTON
+// ===============================
 
-balloonBtn.disabled=false;
 
-});
+lightCandlesBtn.onclick = () => {
 
-balloonBtn.addEventListener("click",()=>{
 
-alert("🎈 Pop Pop Pop!! Happy Birthday Panda!");
+lightCandlesBtn.innerHTML =
+"🕯 Candles Are Lit ✨";
 
-balloonBtn.disabled=true;
 
-cakeBtn.disabled=false;
+wishBtn.disabled = false;
 
-});
 
-cakeBtn.addEventListener("click",()=>{
+};
 
-alert("🍰 Happy Birthday Vanshika!!");
+
+
+
+
+
+
+// ===============================
+// WISH BUTTON
+// ===============================
+
+
+wishBtn.onclick = () => {
+
+
+wishBtn.innerHTML =
+"🌠 Wish Made 💜";
+
+
+balloonBtn.disabled = false;
+
+
+};
+
+
+
+
+
+
+
+// ===============================
+// BALLOONS
+// ===============================
+
+
+balloonBtn.onclick = () => {
+
+
+balloonBtn.innerHTML =
+"🎈 Balloons Popped 🎉";
+
+
+cakeBtn.disabled = false;
+
+
+};
+
+
+
+
+
+
+
+// ===============================
+// CAKE
+// ===============================
+
+
+cakeBtn.onclick = () => {
+
+
+cakeMessage.innerHTML =
+"🍰 Cake Cut Successfully! <br><br> Happy Birthday Vanshika 🐼💜";
+
+
+setTimeout(()=>{
+
 
 celebrationPage.classList.add("hidden");
 
 homePage.classList.remove("hidden");
 
-});
-/* ========================================= */
-/* PAGE NAVIGATION */
-/* ========================================= */
 
-const pages = document.querySelectorAll(".page");
+},2000);
 
-const menuCards = document.querySelectorAll(".menuCard");
 
-const backButtons = document.querySelectorAll(".backBtn");
+};
 
-menuCards.forEach(card=>{
 
-card.addEventListener("click",()=>{
 
-const target=card.dataset.page;
+
+
+
+
+// ===============================
+// MENU NAVIGATION
+// ===============================
+
+
+menuButtons.forEach(button=>{
+
+
+button.onclick = ()=>{
+
+
+let pageId = button.getAttribute("data-page");
+
 
 homePage.classList.add("hidden");
 
-pages.forEach(page=>{
 
-page.classList.add("hidden");
-
-});
-
-document
-.getElementById(target)
+document.getElementById(pageId)
 .classList.remove("hidden");
 
-});
+
+};
+
 
 });
+
+
+
+
+
+
+
+
+// ===============================
+// BACK BUTTON
+// ===============================
+
 
 backButtons.forEach(button=>{
 
-button.addEventListener("click",()=>{
+
+button.onclick = ()=>{
+
 
 pages.forEach(page=>{
 
@@ -197,364 +261,71 @@ page.classList.add("hidden");
 
 });
 
+
 homePage.classList.remove("hidden");
 
-});
+
+};
+
 
 });
 
-/* ========================================= */
-/* GALLERY ANIMATION */
-/* ========================================= */
 
-const galleryImages=document.querySelectorAll(".galleryGrid img");
 
-galleryImages.forEach(image=>{
 
-image.addEventListener("click",()=>{
 
-image.style.transform="scale(1.15)";
 
-image.style.transition=".35s";
 
-setTimeout(()=>{
+// ===============================
+// MUSIC
+// ===============================
 
-image.style.transform="scale(1)";
 
-},350);
+playMusicBtn.onclick = ()=>{
 
-});
 
-});
+if(birthdayMusic.paused){
 
-/* ========================================= */
-/* FINAL PAGE */
-/* ========================================= */
 
-finishWebsite.addEventListener("click",()=>{
+birthdayMusic.play();
 
-document
-.getElementById("finalPage")
-.classList.add("hidden");
 
-endingScreen.classList.remove("hidden");
+playMusicBtn.innerHTML =
+"⏸ Pause Song";
 
-});
-
-/* ========================================= */
-/* SIMPLE TYPEWRITER EFFECT */
-/* ========================================= */
-
-const titles=document.querySelectorAll("h1");
-
-titles.forEach(title=>{
-
-title.style.opacity="0";
-
-setTimeout(()=>{
-
-title.style.transition="1s";
-
-title.style.opacity="1";
-
-},300);
-
-});
-
-/* ========================================= */
-/* BUTTON RIPPLE EFFECT */
-/* ========================================= */
-
-const allButtons=document.querySelectorAll("button");
-
-allButtons.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-button.style.transform="scale(.95)";
-
-setTimeout(()=>{
-
-button.style.transform="scale(1)";
-
-},120);
-
-});
-
-});
-
-/* ========================================= */
-/* FLOATING CONFETTI */
-/* ========================================= */
-
-function launchConfetti(){
-
-for(let i=0;i<40;i++){
-
-const confetti=document.createElement("div");
-
-confetti.innerHTML="🎉";
-
-confetti.style.position="fixed";
-
-confetti.style.left=Math.random()*100+"vw";
-
-confetti.style.top="-30px";
-
-confetti.style.fontSize=(18+Math.random()*20)+"px";
-
-confetti.style.zIndex="99999";
-
-confetti.style.transition="4s linear";
-
-document.body.appendChild(confetti);
-
-setTimeout(()=>{
-
-confetti.style.transform=
-
-`translateY(${window.innerHeight+100}px)
-rotate(${720+Math.random()*720}deg)`;
-
-confetti.style.opacity="0";
-
-},50);
-
-setTimeout(()=>{
-
-confetti.remove();
-
-},4200);
-
-}
-
-}
-
-/* ========================================= */
-/* CELEBRATION EFFECTS */
-/* ========================================= */
-
-lightCandlesBtn.addEventListener("click",launchConfetti);
-
-balloonBtn.addEventListener("click",launchConfetti);
-
-cakeBtn.addEventListener("click",launchConfetti);
-
-finishWebsite.addEventListener("click",launchConfetti);
-/* ========================================= */
-/* BACKGROUND MUSIC */
-/* ========================================= */
-
-const music = new Audio("music/song.mp3");
-
-music.loop = true;
-
-music.volume = 0.5;
-
-cakeBtn.addEventListener("click",()=>{
-
-music.play().catch(()=>{});
-
-});
-
-/* ========================================= */
-/* MUSIC BUTTON */
-/* ========================================= */
-
-const musicButton = document.createElement("button");
-
-musicButton.innerHTML = "🎵";
-
-musicButton.id = "musicButton";
-
-document.body.appendChild(musicButton);
-
-musicButton.style.position = "fixed";
-musicButton.style.right = "20px";
-musicButton.style.bottom = "20px";
-musicButton.style.width = "60px";
-musicButton.style.height = "60px";
-musicButton.style.borderRadius = "50%";
-musicButton.style.border = "none";
-musicButton.style.cursor = "pointer";
-musicButton.style.fontSize = "26px";
-musicButton.style.background = "#ffffff";
-musicButton.style.boxShadow = "0 10px 25px rgba(0,0,0,.25)";
-musicButton.style.zIndex = "99999";
-
-musicButton.addEventListener("click",()=>{
-
-if(music.paused){
-
-music.play();
-
-musicButton.innerHTML="⏸";
 
 }
 
 else{
 
-music.pause();
 
-musicButton.innerHTML="🎵";
+birthdayMusic.pause();
 
-}
 
-});
+playMusicBtn.innerHTML =
+"🎵 Play Birthday Song";
 
-/* ========================================= */
-/* PAGE FADE ANIMATION */
-/* ========================================= */
-
-function showPage(page){
-
-document.querySelectorAll("section").forEach(sec=>{
-
-sec.classList.add("hidden");
-
-});
-
-page.classList.remove("hidden");
-
-page.style.opacity="0";
-
-setTimeout(()=>{
-
-page.style.transition=".7s";
-
-page.style.opacity="1";
-
-},50);
 
 }
 
-/* ========================================= */
-/* FLOATING SPARKLES */
-/* ========================================= */
 
-setInterval(()=>{
+};
 
-const spark=document.createElement("div");
 
-spark.innerHTML="✨";
 
-spark.style.position="fixed";
 
-spark.style.left=Math.random()*100+"vw";
 
-spark.style.top=Math.random()*100+"vh";
 
-spark.style.fontSize=(12+Math.random()*20)+"px";
 
-spark.style.pointerEvents="none";
+// ===============================
+// RESTART
+// ===============================
 
-spark.style.transition="2.5s";
 
-spark.style.zIndex="1";
+restartBtn.onclick = ()=>{
 
-document.body.appendChild(spark);
 
-setTimeout(()=>{
+location.reload();
 
-spark.style.opacity="0";
 
-spark.style.transform="scale(2)";
-
-},100);
-
-setTimeout(()=>{
-
-spark.remove();
-
-},2500);
-
-},900);
-
-/* ========================================= */
-/* FLOATING BALLOONS */
-/* ========================================= */
-
-setInterval(()=>{
-
-const balloon=document.createElement("div");
-
-balloon.innerHTML="🎈";
-
-balloon.style.position="fixed";
-
-balloon.style.left=Math.random()*100+"vw";
-
-balloon.style.bottom="-80px";
-
-balloon.style.fontSize=(35+Math.random()*25)+"px";
-
-balloon.style.transition="12s linear";
-
-balloon.style.pointerEvents="none";
-
-balloon.style.zIndex="0";
-
-document.body.appendChild(balloon);
-
-setTimeout(()=>{
-
-balloon.style.transform="translateY(-130vh)";
-
-},50);
-
-setTimeout(()=>{
-
-balloon.remove();
-
-},12000);
-
-},3000);
-
-/* ========================================= */
-/* FLOATING PETALS */
-/* ========================================= */
-
-setInterval(()=>{
-
-const petal=document.createElement("div");
-
-petal.innerHTML="🌸";
-
-petal.style.position="fixed";
-
-petal.style.left=Math.random()*100+"vw";
-
-petal.style.top="-40px";
-
-petal.style.fontSize=(18+Math.random()*12)+"px";
-
-petal.style.transition="10s linear";
-
-petal.style.pointerEvents="none";
-
-document.body.appendChild(petal);
-
-setTimeout(()=>{
-
-petal.style.transform="translateY(120vh) rotate(720deg)";
-
-},50);
-
-setTimeout(()=>{
-
-petal.remove();
-
-},10000);
-
-},1500);
-
-/* ========================================= */
-/* HAPPY BIRTHDAY TITLE */
-/* ========================================= */
-
-console.log("🎂 Happy Birthday Vanshika 🐼💜");
-
-/* ========================================= */
-/* END */
-/* ========================================= */
-
+};
