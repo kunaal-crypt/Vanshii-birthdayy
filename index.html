@@ -1,479 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Vanshika 🐼💜</title>
+<title>Creating Memories For Vanshika 💜</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
-    <audio id="birthdayMusic" loop>
-
-<source src="music/song.mp3" type="audio/mpeg">
-
-    </audio>
-
-
-<!-- LOADING SCREEN -->
-
-
 
 
 <!-- PASSWORD SCREEN -->
 
-<section id="passwordScreen">
+<section id="passwordScreen" class="screen">
 
+    <div class="password-box">
 
-<div class="glass-card">
+        <h1>💜 A Little Surprise</h1>
 
+        <p>
+            Someone made a special memory for you...
+        </p>
 
-<h1>
-🎁 A Surprise Awaits
-</h1>
+        <input 
+        type="password" 
+        id="passwordInput" 
+        placeholder="Enter password">
 
+        <button id="unlockBtn">
+            Open Surprise ✨
+        </button>
 
-<p>
-This little surprise was created with lots of memories,
-good wishes and happiness.
-Enter the secret date to unlock it.
-</p>
-
-
-<input 
-type="password" 
-id="passwordInput"
-placeholder="Enter password">
-
-
-<button id="unlockBtn">
-Unlock 💜
-</button>
-
-
-<p id="passwordError"></p>
-
-
-</div>
-
+    </div>
 
 </section>
 
 
 
-
-
-<!-- INTRODUCTION -->
-
+<!-- MAIN WEBSITE -->
 
 <section id="introPage" class="hidden">
 
 
-<div class="glass-card">
+<div class="hero">
+
+    <h1>
+        Creating Memories For Vanshika 🐼💜
+    </h1>
+
+    <p>
+        A small surprise filled with memories,
+        smiles and wishes.
+    </p>
+
+</div>
 
 
-<h1>
-Happy Birthday Vanshika 🐼🎂
-</h1>
 
+<!-- MUSIC -->
+
+<audio id="birthdayMusic" loop>
+
+    <source src="music/song.mp3" type="audio/mp3">
+
+</audio>
+
+
+
+<!-- MESSAGE SECTION -->
+
+<section class="card">
+
+<h2>
+Happy Birthday Vanshika 🎂
+</h2>
 
 <p>
-
 Today is not just another day.
-
-Today is a reminder that some people become
-family not because of blood, but because of the
-bond, trust and memories they create.
-
+It's a reminder that someone special like you
+deserves happiness, smiles and beautiful memories.
 </p>
-
 
 <p>
-
-From the days of school to all the conversations,
-laughs and moments we shared,
-this small website is a way to celebrate you
-and wish you the best for everything ahead.
-
+May every dream you carry slowly become reality,
+and may your life always be filled with love,
+peace and countless reasons to smile.
 </p>
-
-
-<button id="startCelebration">
-
-Start Celebration ✨
-
-</button>
-
-
-</div>
-
 
 </section>
 
 
 
+<!-- PHOTO SECTION -->
 
+<section class="card">
 
-
-
-<!-- CELEBRATION ROOM -->
-
-
-<section id="celebrationPage" class="hidden">
-
-
-<div class="celebration-card">
-
-
-<h1>
-Let's Celebrate 🎉
-</h1>
-
-
-<div id="cakeArea">
-
-
-<div class="cake">
-
-🎂
-
-</div>
-
-
-<div class="candles">
-
-
-<div class="candle">
-<span class="flame"></span>
-</div>
-
-
-<div class="candle">
-<span class="flame"></span>
-</div>
-
-
-<div class="candle">
-<span class="flame"></span>
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-<button id="lightCandlesBtn">
-
-🕯 Light The Candles
-
-</button>
-
-
-
-<button id="wishBtn" disabled>
-
-🌠 Make A Wish
-
-</button>
-
-
-
-<button id="balloonBtn" disabled>
-
-🎈 Release Balloons
-
-</button>
-
-
-
-<button id="cakeBtn" disabled>
-
-🍰 Cut The Cake
-
-</button>
-
-
-
-<div id="celebrationMessage"></div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- MAIN MENU -->
-
-
-<section id="homePage" class="hidden">
-
-
-<div class="glass-card">
-
-
-<h1>
-
-Welcome Panda 🐼💜
-
-</h1>
-
-
-
-<p>
-
-Some friendships become something much more beautiful:
-a connection that feels like family.
-
-This place is a collection of wishes, memories,
-and appreciation for the amazing person you are.
-
-</p>
-
-
-
-<div class="menu-container">
-
-
-<button class="menu-btn" data-page="letterPage">
-
-💌 Birthday Letter
-
-</button>
-
-
-<button class="menu-btn" data-page="galleryPage">
-
-📸 Memories
-
-</button>
-
-
-<button class="menu-btn" data-page="futurePage">
-
-🌸 Future Wishes
-
-</button>
-
-
-<button class="menu-btn" data-page="specialPage">
-
-✨ Something Special
-
-</button>
-
-
-<button class="menu-btn" data-page="musicPage">
-
-🎵 Favourite Song
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- LETTER -->
-
-
-<section id="letterPage" class="hidden page">
-
-
-<div class="glass-card">
-
-
-<h1>
-A Letter For You 💌
-</h1>
-
-
-<p>
-
-Dear Vanshika,
-
-Some people enter our lives normally,
-but slowly become someone who holds a special place.
-
-Since the day we met in class 9th,
-you have been a person full of kindness,
-support and positivity.
-
-I hope you always remember that you are capable
-of achieving great things.
-
-Life will bring challenges,
-but I hope you always have the courage to face them,
-the confidence to follow your dreams,
-and the happiness you deserve.
-
-Always keep your beautiful smile,
-because it makes the world around you brighter.
-
-</p>
-
-
-<button class="backBtn">
-
-⬅ Back
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- GALLERY -->
-
-
-<section id="galleryPage" class="hidden page">
-
-
-<div class="glass-card">
-
-
-<h1>
-
-Memories 📸💜
-
-</h1>
-
-
-<p>
-
-Every picture carries a small story.
-These moments are little reminders of happiness
-and memories worth keeping forever.
-
-</p>
-
+<h2>
+Our Memories 📸
+</h2>
 
 
 <div class="gallery">
 
-
 <img src="images/photo1.jpg">
-
 <img src="images/photo2.jpg">
-
 <img src="images/photo3.jpg">
-
 <img src="images/photo4.jpg">
-
 <img src="images/photo5.jpg">
-
-
-</div>
-
-
-<button class="backBtn">
-
-⬅ Back
-
-</button>
-
-
-</div>
-
-
-</section>
-<!-- FUTURE WISHES PAGE -->
-
-<section id="futurePage" class="hidden page">
-
-
-<div class="glass-card">
-
-
-<h1>
-🌸 A New Journey Begins
-</h1>
-
-
-<p>
-
-Dear Vanshika,
-
-A new chapter of life is waiting for you.
-
-You have completed one beautiful part of your journey,
-and now there are countless new opportunities waiting ahead.
-
-There will be new experiences, new challenges,
-and many moments where you will discover how capable
-and strong you truly are.
-
-Always believe in yourself.
-Never let fear stop you from chasing your dreams.
-
-I hope your future is filled with success,
-peace, happiness, and everything your heart wishes for.
-
-May every step you take bring you closer to the life
-you imagine for yourself.
-
-</p>
-
-
-
-<p>
-
-Remember one thing:
-
-No matter how much life changes,
-always keep your kindness,
-your beautiful smile,
-and the amazing personality that makes you,
-you.
-
-Keep growing.
-Keep shining.
-Keep becoming the best version of yourself. 💜
-
-</p>
-
-
-
-<button class="backBtn">
-
-⬅ Back
-
-</button>
-
+<img src="images/photo6.jpg">
 
 </div>
 
@@ -482,232 +119,43 @@ Keep becoming the best version of yourself. 💜
 
 
 
+<!-- FINAL MESSAGE -->
 
-
-
-
-<!-- SPECIAL PAGE -->
-
-
-<section id="specialPage" class="hidden page">
-
-
-<div class="glass-card">
-
-
-<h1>
-✨ Something Special For Panda 🐼
-</h1>
-
-
-<p>
-
-Some relationships are created by destiny,
-not by blood.
-
-Sometimes someone enters your life as just another person,
-but slowly becomes someone who feels like family.
-
-From class 9th memories to all the conversations,
-laughs and moments we shared,
-this bond became something truly special.
-
-You are someone who deserves happiness,
-success, and all the good things life has to offer.
-
-Never forget how valuable and wonderful you are.
-
-</p>
-
-
-
+<section class="card final">
 
 <h2>
-A Little Birthday Poem 💜
+A Small Note 💜
 </h2>
 
+<p>
 
-
-<p class="poem">
-
-
-A little smile, a little cheer,  
-A special day has finally appeared.  
-
-A heart so kind, a soul so bright,  
-Making ordinary moments feel light.  
-
-May your dreams rise higher every day,  
-May happiness always find your way.  
-
-Through every road and every mile,  
-May life reward you with endless smiles.  
-
-Keep shining like the brightest star,  
-Remember you can go so far.  
-
-Today we celebrate the person you are,  
-A beautiful soul with a heart like a star.
-
+Some people make ordinary moments feel special.
+This little website is just a small way to say:
 
 </p>
 
 
-
-<button class="backBtn">
-
-⬅ Back
-
-</button>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- MUSIC PAGE -->
-
-
-<section id="musicPage" class="hidden page">
-
-
-<div class="glass-card">
-
-
-<h1>
-🎵 A Song For You
-</h1>
-
+<h3>
+Keep smiling and keep shining ✨
+</h3>
 
 
 <p>
 
-Every person has some songs that feel connected
-with memories and emotions.
-
-This little music corner is here to make this birthday
-moment even more special.
+Happy Birthday once again, Vanshika.
+Hope this little surprise brings a big smile.
 
 </p>
 
-<br>
+</section>
 
-
-<button id="playMusicBtn">
-
-🎵 Play Music
-
-</button>
-
-
-
-<button class="backBtn">
-
-⬅ Back
-
-</button>
-
-
-
-</div>
 
 
 </section>
 
 
 
-
-
-
-
-<!-- FINAL MESSAGE PAGE -->
-
-
-<section id="finalPage" class="hidden page">
-
-
-<div class="glass-card">
-
-
-<h1>
-
-Happy Birthday Once Again Vanshika 🐼🎂
-
-</h1>
-
-
-
-<p>
-
-Before this surprise comes to an end,
-I just want to say thank you.
-
-Thank you for being such a kind,
-wonderful and positive person.
-
-Thank you for all the memories,
-all the laughs,
-and all the small moments that became special.
-
-I hope this new year of your life brings you
-new opportunities,
-beautiful experiences,
-and success in everything you choose to do.
-
-Always believe in yourself.
-Always keep your smile.
-Always remember that you are capable of achieving
-great things.
-
-May every dream you have slowly turn into reality.
-
-Happy Birthday Panda 💜✨
-
-</p>
-
-
-
-
-<h2>
-Made With Lots Of Wishes 💜
-</h2>
-
-
-
-
-<button id="restartBtn">
-
-🔄 Replay Surprise
-
-</button>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- FLOATING ELEMENT CONTAINERS -->
-
-
-<div id="balloonContainer"></div>
-
-<div id="confettiContainer"></div>
 <script src="script.js"></script>
+
 </body>
 </html>
