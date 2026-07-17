@@ -307,40 +307,28 @@ backButtons.forEach(button=>{
 // MUSIC
 
 
-if(playMusicBtn && birthdayMusic){
+// BACKGROUND MUSIC
+
+const birthdayMusic = document.getElementById("birthdayMusic");
 
 
-playMusicBtn.addEventListener("click",()=>{
+document.addEventListener("click", () => {
 
 
-    if(birthdayMusic.paused){
+    if(birthdayMusic && birthdayMusic.paused){
 
 
-        birthdayMusic.play();
+        birthdayMusic.volume = 0.35;
 
 
-        playMusicBtn.innerHTML="⏸ Pause Music";
-
-
-    }
-
-    else{
-
-
-        birthdayMusic.pause();
-
-
-        playMusicBtn.innerHTML="🎵 Play Music";
+        birthdayMusic.play()
+        .catch(()=>{});
 
 
     }
 
 
-});
-
-
-}
-
+},{ once:true });
 
 
 
