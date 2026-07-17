@@ -26,29 +26,7 @@ body{
 
 /* LOADER */
 
-#loader{
 
-    position:fixed;
-    inset:0;
-    background:
-    linear-gradient(135deg,#7e22ce,#c084fc,#f0abfc);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    z-index:9999;
-
-}
-
-
-.loader-content{
-
-    color:white;
-    text-align:center;
-    animation:loaderPop 2s infinite;
-
-}
 
 
 .loader-content h1{
@@ -67,13 +45,6 @@ body{
 
 
 
-@keyframes loaderPop{
-
-    50%{
-        transform:scale(1.08);
-    }
-
-}
 
 
 
