@@ -5,25 +5,6 @@
 
 // LOADER
 
-window.addEventListener("load",()=>{
-
-    const loader=document.getElementById("loader");
-
-    if(loader){
-
-        setTimeout(()=>{
-
-            loader.style.display="none";
-
-        },2500);
-
-    }
-
-});
-
-
-
-
 // ELEMENTS
 
 const passwordScreen=document.getElementById("passwordScreen");
