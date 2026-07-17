@@ -1,102 +1,53 @@
-// ======================================
-// VANSHiKA BIRTHDAY WEBSITE JAVASCRIPT
-// ======================================
+// PASSWORD SYSTEM
+
 const passwordInput = document.getElementById("passwordInput");
 const unlockBtn = document.getElementById("unlockBtn");
+
 const passwordScreen = document.getElementById("passwordScreen");
 const introPage = document.getElementById("introPage");
+
 
 
 if(unlockBtn){
 
 unlockBtn.addEventListener("click",()=>{
 
+
     if(passwordInput.value === "17-07"){
+
 
         passwordScreen.classList.add("hidden");
 
         introPage.classList.remove("hidden");
 
+
+        startEffects();
+
+
     }
+
     else{
+
 
         alert("Wrong password 💜");
 
+
     }
 
+
 });
+
 
 }
 
-// ELEMENTS
-
-const passwordScreen=document.getElementById("passwordScreen");
-const passwordInput=document.getElementById("passwordInput");
-const unlockBtn=document.getElementById("unlockBtn");
-const passwordError=document.getElementById("passwordError");
-
-const introPage=document.getElementById("introPage");
-const startCelebration=document.getElementById("startCelebration");
-
-const celebrationPage=document.getElementById("celebrationPage");
-const homePage=document.getElementById("homePage");
-
-const lightCandlesBtn=document.getElementById("lightCandlesBtn");
-const wishBtn=document.getElementById("wishBtn");
-const balloonBtn=document.getElementById("balloonBtn");
-const cakeBtn=document.getElementById("cakeBtn");
-
-const celebrationMessage=document.getElementById("celebrationMessage");
-
-const menuButtons=document.querySelectorAll(".menu-btn");
-const pages=document.querySelectorAll(".page");
-
-const backButtons=document.querySelectorAll(".backBtn");
-
-const playMusicBtn=document.getElementById("playMusicBtn");
-const birthdayMusic=document.getElementById("birthdayMusic");
-
-const restartBtn=document.getElementById("restartBtn");
 
 
+// ENTER KEY
 
-
-
-
-// PASSWORD
-
-unlockBtn.addEventListener("click",()=>{
-
-
-    if(passwordInput.value==="17-07"){
-
-
-        passwordScreen.classList.add("hidden");
-
-        introPage.classList.remove("hidden");
-
-
-    }
-
-    else{
-
-
-        passwordError.innerHTML="Wrong password 😭 Try again";
-
-
-    }
-
-
-});
-
-
-
-
-
-
-// ENTER KEY PASSWORD
+if(passwordInput){
 
 passwordInput.addEventListener("keypress",(e)=>{
+
 
     if(e.key==="Enter"){
 
@@ -104,267 +55,78 @@ passwordInput.addEventListener("keypress",(e)=>{
 
     }
 
-});
-
-
-
-
-
-
-
-// INTRO TO CELEBRATION
-
-startCelebration.addEventListener("click",()=>{
-
-
-    introPage.classList.add("hidden");
-
-    celebrationPage.classList.remove("hidden");
-
 
 });
 
 
+}
 
 
 
 
-
-
-
-// CANDLE BUTTON
-
-lightCandlesBtn.addEventListener("click",()=>{
-
-
-    lightCandlesBtn.innerHTML="🕯 Candles Are Glowing ✨";
-
-
-    document.body.style.background=
-    "linear-gradient(135deg,#4c1d95,#9333ea)";
-
-
-    wishBtn.disabled=false;
-
-
-    createConfetti();
-
-
-});
-
-
-
-
-
-
-
-// WISH BUTTON
-
-wishBtn.addEventListener("click",()=>{
-
-
-    wishBtn.innerHTML="🌠 Wish Made 💜";
-
-
-    createConfetti();
-
-
-    balloonBtn.disabled=false;
-
-
-});
-
-
-
-
-
-
-
-// BALLOON BUTTON
-
-balloonBtn.addEventListener("click",()=>{
-
-
-    balloonBtn.innerHTML="🎈 Balloons Flying 🎉";
-
-
-    createBalloons();
-
-
-    cakeBtn.disabled=false;
-
-
-});
-
-
-
-
-
-
-
-// CAKE BUTTON
-
-cakeBtn.addEventListener("click",()=>{
-
-
-    cakeBtn.innerHTML="🍰 Cake Cut!";
-
-
-    celebrationMessage.innerHTML=
-    "🎂 Happy Birthday Vanshika 🐼💜<br><br>May your life always be filled with happiness and success ✨";
-
-
-    createConfetti();
-
-
-    setTimeout(()=>{
-
-
-        celebrationPage.classList.add("hidden");
-
-
-        homePage.classList.remove("hidden");
-
-
-    },3000);
-
-
-
-});
-
-
-
-
-
-
-
-
-
-// MENU NAVIGATION
-
-
-menuButtons.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        let target=button.getAttribute("data-page");
-
-
-        homePage.classList.add("hidden");
-
-
-        document.getElementById(target)
-        .classList.remove("hidden");
-
-
-
-    });
-
-
-});
-
-
-
-
-
-
-
-
-// BACK BUTTONS
-
-
-backButtons.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        pages.forEach(page=>{
-
-
-            page.classList.add("hidden");
-
-
-        });
-
-
-
-        homePage.classList.remove("hidden");
-
-
-
-    });
-
-
-});
-
-
-
-
-
-
-
-
-
-// MUSIC
-
-
-// BACKGROUND MUSIC
+// MUSIC AFTER USER INTERACTION
 
 const birthdayMusic = document.getElementById("birthdayMusic");
 
 
-document.addEventListener("click", () => {
+function playMusic(){
 
 
-    if(birthdayMusic && birthdayMusic.paused){
+    if(birthdayMusic){
 
 
         birthdayMusic.volume = 0.35;
 
-
-        birthdayMusic.play()
-        .catch(()=>{});
+        birthdayMusic.play().catch(()=>{});
 
 
     }
 
 
-},{ once:true });
+}
+
+
+
+function startEffects(){
+
+
+    playMusic();
+
+
+    createBalloons();
+
+
+    createConfetti();
+
+
+}
 
 
 
 
-
-
-
-
-// BALLOON CREATOR
-
+// BALLOONS
 
 function createBalloons(){
 
 
-    for(let i=0;i<25;i++){
+    for(let i=0;i<20;i++){
 
 
         let balloon=document.createElement("div");
 
 
-        balloon.className="balloon";
-
-
         balloon.innerHTML="🎈";
 
 
-        balloon.style.left=Math.random()*100+"vw";
+        balloon.style.position="fixed";
 
+        balloon.style.left=Math.random()*100+"%";
 
-        balloon.style.animationDuration=
-        (4+Math.random()*4)+"s";
+        balloon.style.bottom="-50px";
 
+        balloon.style.fontSize="35px";
+
+        balloon.style.animation=`float ${4+Math.random()*5}s linear`;
 
 
         document.body.appendChild(balloon);
@@ -373,16 +135,12 @@ function createBalloons(){
 
         setTimeout(()=>{
 
-
             balloon.remove();
 
-
-        },7000);
-
+        },9000);
 
 
     }
-
 
 
 }
@@ -391,88 +149,41 @@ function createBalloons(){
 
 
 
-
-
-
-
-// CONFETTI CREATOR
-
+// CONFETTI
 
 function createConfetti(){
 
 
-    let symbols=[
-        "🎉",
-        "✨",
-        "💜",
-        "🌸",
-        "⭐"
-    ];
+    for(let i=0;i<50;i++){
 
 
-
-    for(let i=0;i<40;i++){
-
-
-        let confetti=document.createElement("div");
+        let conf=document.createElement("div");
 
 
-        confetti.className="confetti";
+        conf.innerHTML="✨";
 
 
-        confetti.innerHTML=
-        symbols[Math.floor(Math.random()*symbols.length)];
+        conf.style.position="fixed";
+
+        conf.style.left=Math.random()*100+"%";
+
+        conf.style.top=Math.random()*100+"%";
+
+        conf.style.fontSize="20px";
 
 
-
-        confetti.style.left=
-        Math.random()*100+"vw";
-
-
-
-        confetti.style.animationDuration=
-        (3+Math.random()*3)+"s";
-
-
-
-        document.body.appendChild(confetti);
+        document.body.appendChild(conf);
 
 
 
         setTimeout(()=>{
 
+            conf.remove();
 
-            confetti.remove();
-
-
-        },6000);
-
+        },3000);
 
 
     }
 
 
 }
-
-
-
-
-
-
-
-
-// RESTART
-
-if(restartBtn){
-
-
-restartBtn.addEventListener("click",()=>{
-
-
-    location.reload();
-
-
-});
-
-
-            }
